@@ -1,24 +1,13 @@
+import os
+from dotenv import load_dotenv
 import streamlit as st
 import pandas as pd
 from sqlalchemy import create_engine
 
-st.set_page_config(
-    page_title="Liane's Library",
-    page_icon="📚",
-    layout="wide"
-)
-
-DB_USER = "root"
-DB_PASSWORD = "19921992"
-DB_HOST = "localhost"
-DB_NAME = "lianes_library"
-
-st.write("DB_USER =", DB_USER)
-st.write("DB_HOST =", DB_HOST)
-st.write("DB_NAME =", DB_NAME)
+load_dotenv()
 
 engine = create_engine(
-    f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}"
+    f"mysql+pymysql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}/{os.getenv('DB_NAME')}"
 )
 
 
