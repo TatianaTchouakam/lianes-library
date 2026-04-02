@@ -2,8 +2,8 @@
 
 🚀 **End-to-End Data Engineering Project**
 
-Liane's Library is a data-driven library management application built with **Python, SQL, and Streamlit**.  
-It showcases how to design a full data system — from database modeling to an interactive dashboard.
+Liane's Library is a data-driven library management application built with Python, SQL, and Streamlit.  
+It demonstrates how to design a complete data system from database modeling to an interactive dashboard.
 
 ---
 
@@ -21,51 +21,48 @@ This application allows users to:
 
 ## 🧰 Tech Stack
 
-- **Python** (Pandas, SQLAlchemy)  
-- **SQL (MySQL)** – database design & queries  
-- **Streamlit** – interactive dashboard  
-- **Git & GitHub** – version control  
+- Python (Pandas, SQLAlchemy)  
+- SQL (MySQL) – database design & queries  
+- Streamlit – interactive dashboard  
+- Git & GitHub – version control  
 
 ---
 
-## 🏗️ Database Design
+## 🏗️ Database Structure
 
-The system is built on a relational database with 4 core tables:
+The system is built on 4 main tables:
 
-- **authors** → author details  
-- **books** → book information (linked to authors)  
-- **friends** → users of the library  
-- **loans** → borrowing and return tracking  
+- authors → stores author information  
+- books → contains book details  
+- friends → library users  
+- loans → tracks borrowing activity  
 
 ---
 
-## 📊 Key Features
+## 📊 Features
 
-### 🔍 Search & Filtering
+### 🔍 Search System
 - Global search across books, authors, and friends  
-- Dynamic filtering by genre  
-
----
+- Fast filtering with dynamic queries  
 
 ### 📈 Dashboard
 
-Real-time KPIs:
-
-- 📚 Current Loans  
-- ⏰ Overdue Loans  
-- 👥 Active Borrowers  
-- 📊 Return Rate  
+Key metrics:
+- Current Loans  
+- Overdue Loans  
+- Current Borrowers  
+- Return Rate  
 
 Analytics:
-- Loans by genre  
-- Most borrowed books  
+- Loan activity by genre  
+- Top borrowed books  
 - Most active users  
 
 ---
 
 ### 📘 Books Management
 
-- Add new books  
+- Add books  
 - Remove books  
 - Filter by genre  
 - View available books  
@@ -75,13 +72,14 @@ Analytics:
 
 ### 👥 Friends Management
 
-- Add new users  
+- Add friends  
 - Track borrowing activity  
+- Monitor current loans per user  
 - Limit number of loans per user  
 
 ---
 
-### 🔄 Loans System
+### 🔄 Loans Management
 
 - Create loans  
 - Return books  
@@ -90,7 +88,7 @@ Analytics:
 
 ---
 
-### ✍️ Authors Insights
+### ✍️ Authors Analysis
 
 - Number of books per author  
 - Most borrowed authors  
@@ -99,46 +97,83 @@ Analytics:
 
 ## ⚡ Example SQL Queries
 
-```sql
--- Current loans
-SELECT COUNT(*)
-FROM loans
+-- Current loans  
+SELECT COUNT(*)  
+FROM loans  
 WHERE return_date IS NULL;
 
--- Overdue loans
-SELECT COUNT(*)
-FROM loans
-WHERE return_date IS NULL
+-- Overdue loans  
+SELECT COUNT(*)  
+FROM loans  
+WHERE return_date IS NULL  
   AND due_date < CURDATE();
 
--- Loans by genre
-SELECT b.genre, COUNT(l.loan_id)
-FROM books b
-JOIN loans l ON b.isbn = l.isbn
+-- Loans by genre  
+SELECT b.genre, COUNT(l.loan_id)  
+FROM books b  
+JOIN loans l ON b.isbn = l.isbn  
 GROUP BY b.genre;
 
+---
 
-💡 What This Project Demonstrates
-Relational database design (MySQL)
-Advanced SQL querying
-Backend integration with Python
-Building interactive data applications
-End-to-end data workflow
+## 🖥️ How to Run the Project
 
-📌 Highlights
-Full-stack data project (SQL → Python → UI)
-Real-time data updates
-Clean and user-friendly interface
-Strong focus on data-driven decision-making
+1. Clone the repository  
+git clone https://github.com/TatianaTchouakam/lianes-library.git  
+cd lianes-library  
 
-🎯 Future Improvements
-Authentication system
-Recommendation system (Machine Learning)
-Cloud deployment (AWS)
-API integration
+2. Install dependencies  
+pip install -r requirements.txt  
 
+3. Create a `.env` file (not included for security)  
 
-👩🏽‍💻 Author
-Tatiana Tchouakam Chouacheu
-Data & Cloud Engineer in Training
-🔗 GitHub: https://github.com/TatianaTchouakam
+DB_USER=root  
+DB_PASSWORD=your_password  
+DB_HOST=localhost  
+DB_NAME=lianes_library  
+
+4. Run the app  
+streamlit run src/app.py  
+
+---
+
+## 💡 What This Project Demonstrates
+
+- Relational database design (MySQL)  
+- Advanced SQL querying  
+- Backend integration with Python  
+- Building interactive data applications  
+- End-to-end data workflow  
+
+---
+
+## 📌 Highlights
+
+- Full-stack data project (SQL → Python → UI)  
+- Real-time data updates  
+- Clean and user-friendly interface  
+- Strong focus on data-driven decision-making  
+
+---
+
+## 🎯 Future Improvements
+
+- Authentication system  
+- Recommendation system (Machine Learning)  
+- Cloud deployment (AWS)  
+- API integration  
+
+---
+
+## 👩🏽‍💻 Author
+
+Tatiana Tchouakam Chouacheu  
+Data & Cloud Engineer in Training  
+
+GitHub: https://github.com/TatianaTchouakam  
+
+---
+
+## ⭐ Support
+
+If you like this project, give it a star ⭐ and feel free to contribute!
