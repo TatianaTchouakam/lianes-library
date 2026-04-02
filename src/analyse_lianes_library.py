@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 
 def connect_db():
-    engine = create_engine("mysql+pymysql://root:19921992@127.0.0.1:3306/lianes_library")
+    engine = create_engine("mysql+pymysql://root:password@127.0.0.1:3306/lianes_library")
     return engine
 
 if __name__ == "__main__":
@@ -12,7 +12,7 @@ if __name__ == "__main__":
 from sqlalchemy import create_engine
 
 def connect_db():
-    engine = create_engine("mysql+pymysql://root:19921992@127.0.0.1:3306/lianes_library")
+    engine = create_engine("mysql+pymysql://root:password@127.0.0.1:3306/lianes_library")
     return engine
 
 
